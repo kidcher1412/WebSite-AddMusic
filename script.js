@@ -82,7 +82,7 @@ document.querySelector("#image").addEventListener("input",function(){
           var swatches = vibrant.swatches()
           // console.log(vibrant.swatches().DarkMuted.getHex())
           // console.log(vibrant.swatches().DarkVibrant.getHex())
-          let color = vibrant.swatches().DarkVibrant.getHex()
+          let color = vibrant.swatches().DarkMuted.getHex()
           let redHex = color.substring(1, 3);
           let greenHex = color.substring(2, 4);
           let blueHex = color.substring(4, 6);

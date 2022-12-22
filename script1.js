@@ -20,6 +20,20 @@ const firebaseConfig = {
     // Lấy file .mp3 từ input
     var file = document.querySelector("#audioFileInput1").files[0];
     // Tạo đối tượng storageRef và audioRef
+    var storageRef = ref(ds, `IMG/${file.name}`);
+
+    // Tải file lên Firebase Storage
+    uploadBytes(storageRef, file).then((snapshot) => {
+        console.log('Uploaded a blob or file!');
+        getDownloadURL(ref(ds, `IMG/${file.name}`)).then(url=>{
+            document.querySelector("#image").value = url;
+        })
+      });
+});
+  document.querySelector("#uploadButton").addEventListener("click", function() {
+    // Lấy file .mp3 từ input
+    var file = document.querySelector("#audioFileInput").files[0];
+    // Tạo đối tượng storageRef và audioRef
     var storageRef = ref(ds, `MUSIC/${file.name}`);
 
     // Tải file lên Firebase Storage
@@ -30,3 +44,6 @@ const firebaseConfig = {
         })
       });
 });
+document.querySelector("#dowloader").addEventListener("click", function() {
+  dowloader
+})
